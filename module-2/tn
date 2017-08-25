@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Simple note-taking script
+# Author: mcknz
+
+# special variable $1 takes first argument
+# special variable $* takes all arguments
+# echo $1 >> notes.txt
+# echo $* >> notes.txt
+
+# added date via command substitution
+echo $(date): $* >> /c/src/bash-shell-scripting/module-2/notes.txt
+echo Note saved: $*

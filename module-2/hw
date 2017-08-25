@@ -1,0 +1,5 @@
+#on Linux you must make the script executable via:
+#   the owner -- "chmod u+x hw"
+#   everyone -- "chmod a+x hw"
+
+echo Hello, World!
