@@ -1,0 +1,48 @@
+#!/bin/bash
+# use -x bash option to debug all
+# use "set -x" to turn on in place, and "set +x" to turn off.
+
+# Simple note-taking script
+# Author: mcknz
+
+# special variable $1 takes first argument
+# special variable $* takes all arguments
+# echo $1 >> notes.txt
+# echo $* >> notes.txt
+
+# always good practice to quote user variables,
+#   to protect against spaces and other issues.
+#   double-quotes escape all variables
+# double-quotes leave the value of the variable intact
+
+# get the date
+# added date via command substitution in $date variable
+date=$(date)
+
+# get the topic
+topic="$1"
+
+#filename to write to
+filename="/c/src/bash-shell-scripting/module-3-variables/${topic}notes.txt"
+
+# Ask user for input
+read -p "Your note: " note
+
+# Check for empty string before saving note
+#   -- brackets indicate conditional expression
+#   -- spaces around brackets are significant
+#   examples:
+#       [[ $str ]]              $str is not empty
+#       [[ $str = "something ]] $str equals string "something
+#       [[ $str="something ]]   always returns true b/c $str is not empty (assignment)
+#       [[ -e $filename ]]      file $filename exists
+#       [[ -d $dirname ]]       $dirname is a directory
+#
+if [[ $note ]]; then
+    # appending note variable to the correct txt file
+    # $filename is quoted to allow bash to resolve a string containing a space
+    echo "$date: $note" >> "$filename"
+    echo "Note '$note' saved in $filename"
+else
+    echo "No input; note wasn't saved."
+fi

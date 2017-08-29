@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# create_script
+# This script creates a new bash script, sets permissions, and more
+# Author: mcknz
+
+orig_dir=$(pwd)
+
+# Is there an argument
+if [[ ! $1 ]]; then
+    echo "Missing argument"
+    exit 1
+fi
+
+scriptname="$1"
+bindir="/c/src/bash-shell-scripting/module-4-if-then-else"
+filename="${bindir}/${scriptname}"
+
+# Check filename exists
+if [[ -e $filename ]]; then
+    echo "File ${filename} already exists"
+    exit 1    
+fi
+
+# Check if command name conflict exists with new script
+if type "$scriptname"; then
+    echo "There is already a command with name ${scriptname}"
+fi
+
+# Check bin directory exists
+if [[ ! -d $bindir ]]; then
+    # if not, create bin directory
+    if mkdir "$bindir"; then
+        echo "Created ${bindir}"
+    else
+        echo "Could not create ${bindir}."
+        exit 1
+    fi
+fi
+
+# Create a script with a single line
+echo '#!/bin/bash' > "$filename"
+
+#Add executable permission
+chmod u+x "$filename"
+
+#open with editor (would use $EDITOR but having trouble setting on Windows)
+cd "/c/Program Files (x86)/Notepad++/"
+./notepad++.exe "$filename"
+
+cd $orig_dir
+
+echo "End of code reached"
+exit 0
