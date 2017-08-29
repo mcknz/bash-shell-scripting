@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Demonstrates redirection capabilities
+# Author: mcknz
+
+# redirects ls output to a file called demo
+ls > demo
+cat demo
+
+# redirects note-taking script output to a file called demo2
+echo "Enter text, then hit enter."
+./tn > demo2
+cat demo2
+
+# does input redirection from a file, and output to a file named demo3
+echo "Input coming from file."
+./tn < note > demo3
+cat demo3
+
+# redirects error message to standard error, which is written to demo4
+echo "Just hit enter."
+./tn 2> demo4
+cat demo4
+
+# redirects all errors and output to standard output, which is written to demo5
+echo "Enter text, then hit enter."
+./tn > demo5 2>&1
+cat demo5

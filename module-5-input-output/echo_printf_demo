@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Demonstrates echo and printf capabilities
+# Author: mcknz
+
+# prints "hello" then a newline character (\n)
+echo "hello"
+
+# prints "hello" as format string argument to printf, without newline
+printf "hello"
+
+# prints "hello" as format string argument to printf, with newline
+printf "hello\n"
+
+# prints string with %s percent code as part of format string
+printf "hello %s, how are you?\n" $USERNAME
+
+# prints string with %s percent code as part of format string, multiple arguments
+printf "p%st\n" a e i o u
+
+# prints string with multiple %s percent codes as part of format string
+printf "%s's home is in %s\n" $USERNAME $HOME
+
+cd ~
+# prints ls in 20-character-wide columns
+printf "|%20s |%20s |%20s |\n" $(ls -a)
+cd /c/src/bash-shell-scripting/module-5-input-output
+
+# save to a variable
+printf -v greeting "hello %s, how are you?\n" $USERNAME
+echo $greeting

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Demonstrates input capabilities
+# Author: mcknz
+
+# reads input and prints in standard $REPLY variable
+echo "Type some text then hit enter. Try \\\\ characters to test escape sequences."
+read; echo $REPLY
+
+# reads input (disallows escape sequences with r option) and prints in standard $REPLY variable
+echo "Type some text then hit enter. Try \\ character to test escape sequences."
+read -r; echo $REPLY
+
+# reads input and sends two words to two arguments
+echo "Type two words."
+read a b
+echo $a
+echo $b
+
+# reads input and sends three words to two arguments
+echo "Type three words."
+read a b
+echo $a
+echo $b
+
+# reads input and sends two words to two arguments with a colon separator
+# IFS is "internal field separator"
+echo "Type two words separated by a colon."
+IFS=: read a b
+echo $a
+echo $b
