@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# stripto2
+# This script prints standard input to standard output
+#   discarding all lines before the first line matching
+#   the string given as the first argument
+#   uses single loop with continue keyword
+# Author: mcknz
+#   usage: ./stripto2 over < note
+
+if [[ ! $1 ]]; then
+    echo "Need first argument" >&2
+    exit 1
+fi
+
+found=""
+
+# read up to first match
+while read -r; do
+    if [[ ! $found ]]; then
+        if [[ $REPLY =~ $1 ]]; then
+            found="yep"
+        else
+            continue
+        fi
+    fi
+    echo "$REPLY"
+done
+
+
+echo "End of code reached"
+exit 0

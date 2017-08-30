@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# animals
+# Demonstrates case statement capability
+# Author: mcknz
+# usage animals dog
+
+case $1 in
+    cat)
+        echo "meow";;
+    dog)
+        echo "woof";;
+    cow)
+        echo "moo";;
+    *)
+        echo "unknown animal"
+esac
+
+echo "End of code reached"
+exit 0

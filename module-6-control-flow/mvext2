@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# mvext
+# This script uses a classic for loop with wildcards
+#   to change the extension on a set of files
+# Author: mcknz
+# usage: ./mvext bla lab
+
+touch exttext1.bla
+touch exttext2.bla
+
+ls -l
+
+[[ $# -ne 2 ]] && \
+    { echo "Need exactly two arguments" >&2; \
+        rm exttext1.bla; \
+        rm exttext2.bla; \
+        exit 1; }
+
+for f in *"$1"; do
+    base=$(basename "$f" "$1")
+    mv "$f" "${base}$2"
+done
+
+ls -l
+
+rm exttext1.lab
+rm exttext2.lab
+
+echo "End of code reached"
+exit 0

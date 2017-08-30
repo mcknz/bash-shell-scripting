@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# stripto
+# This script prints standard input to standard output
+#   discarding all lines before the first line matching
+#   the string given as the first argument
+# Author: mcknz
+#   usage: ./stripto over < note
+
+if [[ ! $1 ]]; then
+    echo "Need first argument" >&2
+    exit 1
+fi
+
+# read up to first match
+while read -r; do
+    if [[ $REPLY =~ $1 ]]; then
+        echo "$REPLY"
+        break
+    fi
+done
+
+# just print rest of file
+while read -r; do
+    echo "$REPLY"
+done
+
+echo "End of code reached"
+exit 0

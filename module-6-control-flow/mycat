@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# mycat
+# This script uses a while loop to read a file
+# Author: mcknz
+# usage: ./mycat note
+
+while read -r; do
+    printf "%s\n" "$REPLY"
+done <"$1"
+
+echo "End of code reached"
+exit 0

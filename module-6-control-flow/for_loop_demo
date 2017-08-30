@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# for_loop_demo
+# Demonstrates for statement capability
+# Author: mcknz
+
+# prints a list of words -- classic for statement
+for i in just a list of words; do
+    echo $i
+done
+
+echo "-----------------"
+
+# Quoting the list will cause it to be treated as single words -- classic for statement
+for i in "just a list of words"; do
+    echo $i
+done
+
+echo "End of code reached"
+exit 0
