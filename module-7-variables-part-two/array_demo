@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# outer
+# Demonstrates array capability
+# Author: mcknz
+
+# initialize an array and print declaration
+ar=(this is an array)
+declare -p ar
+
+# print the third array element
+echo ${ar[2]}
+
+# add an element and print updated declaration
+ar[15]=something
+declare -p ar
+
+# print the element array length
+echo ${#ar[@]}
+
+# print the array indicies
+echo ${!ar[@]}
+
+exit 0

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# inner
+# Demonstrates variable export capability
+# Author: mcknz
+
+echo "inner before: $var"
+var="inner"
+echo "inner after: $var"
+
+exit 0

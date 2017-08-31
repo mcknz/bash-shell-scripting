@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# attribute_demo
+# Demonstrates variable attribute capability
+# Author: mcknz
+
+# try an arithmetic operation with regular variable
+p="4+5"
+echo $p
+
+echo "--------------------------------"
+
+# declare p to hold integers only
+declare -i p
+p="4+5"
+echo $p
+
+echo "--------------------------------"
+
+# assigning string to p results in 0 value
+declare -i p
+p="testing"
+echo $p
+
+echo "--------------------------------"
+exit 0

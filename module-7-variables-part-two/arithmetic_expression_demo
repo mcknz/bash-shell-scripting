@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# attribute_demo
+# Demonstrates arithmetic expression capability
+# Author: mcknz
+
+# try an arithmetic operation
+declare -i x
+x=100/2
+echo $x
+
+echo "--------------------------------"
+
+# perform arithmetic expression -- causes error b/c the result is not a command
+$((++x))
+echo $x
+
+echo "--------------------------------"
+
+# perform arithmetic expression -- works b/c it's simply an operation
+((++x))
+echo $x
+
+echo "--------------------------------"
+
+# perform arithmetic expression and assign to variable
+x=$((++x))
+echo $x
+
+echo "--------------------------------"
+exit 0

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# outer
+# Demonstrates variable export capability
+# Author: mcknz
+
+declare -x var="outer"
+echo "outer before: $var"
+./inner
+echo "outer after: $var"
+
+exit 0
